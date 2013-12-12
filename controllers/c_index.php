@@ -5,6 +5,7 @@ class index_controller extends base_controller {
 	/*-------------------------------------------------------------------------------------------------
 
 	-------------------------------------------------------------------------------------------------*/
+
 	public function __construct() {
 		parent::__construct();
 	} 
@@ -19,7 +20,7 @@ class index_controller extends base_controller {
 			$this->template->content = View::instance('v_index_index');
 			
 		# Now set the <title> tag
-			$this->template->title = "Hello World";
+			$this->template->title = "ShiftLog";
 	
 		# CSS/JS includes
 			/*
