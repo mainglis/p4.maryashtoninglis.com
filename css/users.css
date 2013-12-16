@@ -11,14 +11,17 @@ body {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+  margin-top: 75px;
   background-color: #fff;
   border-style: solid;
   border-radius: 1em;
   border-color: #696969;
 }
 .form-signin .form-signin-heading,
+.form-signin h4, h3, p,
 .form-signin .checkbox {
   margin-bottom: 10px;
+  text-align: center;
 }
 .form-signin .checkbox {
   font-weight: normal;
