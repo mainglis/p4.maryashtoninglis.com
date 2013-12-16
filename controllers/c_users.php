@@ -51,17 +51,12 @@ class users_controller extends base_controller {
 	/*-------------------------------------------------------------------------------------------------
 	Display a form so users can login
 	-------------------------------------------------------------------------------------------------*/
-    public function login($error = NULL) {
-
-        # Set up the view
-        $this->template->content = View::instance("v_users_login");
-
-        # Pass data to the view
-        $this->template->content->error = $error;
-
-        # Render the view
-        echo $this->template;
-
+    
+    public function login() {
+    
+            $this->template->content = View::instance('v_users_login');            
+            echo $this->template;   
+       
     }
     
     
@@ -69,49 +64,37 @@ class users_controller extends base_controller {
     Process the login form
     -------------------------------------------------------------------------------------------------*/
     public function p_login() {
-
-        # Sanitize the user entered data to prevent any funny-business (re: SQL Injection Attacks)
-        $_POST = DB::instance(DB_NAME)->sanitize($_POST);
-
-        # Hash submitted password so we can compare it against one in the db
-        $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
-
-        # Search the db for this email and password
-        # Retrieve the token if it's available
-        $q = "SELECT token 
-            FROM users 
-            WHERE email = '".$_POST['email']."' 
-            AND password = '".$_POST['password']."'";
-
-        $token = DB::instance(DB_NAME)->select_field($q);
-
-        # If we didn't find a matching token in the database, it means login failed
-        if(!$token) {
-
-            # Send them back to the login page
-            Router::redirect("/users/login/error");
-
-        # But if we did, login succeeded! 
-        } else {
-
-            /* 
-            Store this token in a cookie using setcookie()
-            Important Note: *Nothing* else can echo to the page before setcookie is called
-            Not even one single white space.
-            param 1 = name of the cookie
-            param 2 = the value of the cookie
-            param 3 = when to expire
-            param 4 = the path of the cooke (a single forward slash sets it for the entire domain)
-            */
-            setcookie("token", $token, strtotime('+2 weeks'), '/');
-
-            # Send them to the main page - or whever you want them to go
-            Router::redirect("/");
-
-        }
-
+                      
+                   # Hash the password they entered so we can compare it with the ones in the database
+                $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
+                
+                # Set up the query to see if there's a matching email/password in the DB
+                $q = 
+                        'SELECT token 
+                        FROM users
+                        WHERE email = "'.$_POST['email'].'"
+                        AND password = "'.$_POST['password'].'"';
+                
+                # echo $q;        
+                
+                # If there was, this will return the token           
+                $token = DB::instance(DB_NAME)->select_field($q);
+                
+                # Success
+                if($token) {
+                
+                        # Don't echo anything to the page before setting this cookie!
+                        setcookie('token',$token, strtotime('+1 year'), '/');
+                        
+                        # Send them to the homepage
+                        Router::redirect('/');
+                }
+                # Fail
+                else {
+                        echo "Login failed! <a href='/users/login'>Try again?</a>";
+                }
+           
     }
-
 
 	/*-------------------------------------------------------------------------------------------------
 	No view needed here, they just goto /users/logout, it logs them out and sends them

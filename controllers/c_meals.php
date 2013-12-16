@@ -1,6 +1,6 @@
 <?php
 
-class posts_controller extends base_controller {
+class meals_controller extends base_controller {
 	
 	/*-------------------------------------------------------------------------------------------------
 	
@@ -19,11 +19,11 @@ class posts_controller extends base_controller {
 	
 	 
 	/*-------------------------------------------------------------------------------------------------
-	Display a new post form
+	Display a new meal form
 	-------------------------------------------------------------------------------------------------*/
 	public function add() {
 		
-		$this->template->content = View::instance("v_posts_add");
+		$this->template->content = View::instance("v_meals_add");
 		
 		$client_files_body = Array(
 			'/js/jquery.form.js',
@@ -38,7 +38,7 @@ class posts_controller extends base_controller {
 	
 	
 	/*-------------------------------------------------------------------------------------------------
-	Process new posts
+	Process new meals
 	-------------------------------------------------------------------------------------------------*/
 	public function p_add() {
 		
@@ -46,9 +46,9 @@ class posts_controller extends base_controller {
 		$_POST['created']  = Time::now();
 		$_POST['modified'] = Time::now();
 		
-		DB::instance(DB_NAME)->insert('posts',$_POST);
+		DB::instance(DB_NAME)->insert('meals',$_POST);
 		
-		$view = new View('v_posts_p_add');
+		$view = new View('v_meals_p_add');
 		
 		$view->created = Time::display(Time::now());
 		
@@ -58,12 +58,12 @@ class posts_controller extends base_controller {
 	
 	
 	/*-------------------------------------------------------------------------------------------------
-	View all posts
+	View all meals
 	-------------------------------------------------------------------------------------------------*/
 	public function index() {
 		
 		# Set up view
-		$this->template->content = View::instance('v_posts_index');
+		$this->template->content = View::instance('v_meals_index');
 		
 		# Set up query
 		$q = 'SELECT 
@@ -98,7 +98,7 @@ class posts_controller extends base_controller {
 	public function users() {
 		
 		# Set up view
-		$this->template->content = View::instance("v_posts_users");
+		$this->template->content = View::instance("v_meals_users");
 		
 		# Set up query to get all users
 		$q = 'SELECT *
@@ -141,7 +141,7 @@ class posts_controller extends base_controller {
 	    DB::instance(DB_NAME)->insert('users_users', $data);
 	
 	    # Send them back
-	    Router::redirect("/posts/users");
+	    Router::redirect("/meals/users");
 	
 	}
 	
@@ -158,7 +158,7 @@ class posts_controller extends base_controller {
 	    DB::instance(DB_NAME)->delete('users_users', $where_condition);
 	
 	    # Send them back
-	    Router::redirect("/posts/users");
+	    Router::redirect("/meals/users");
 	
 	}
 	
