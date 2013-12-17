@@ -38,7 +38,7 @@
 	              <li class="nav-header">Actions</li>
 	              <!-- <li class="active"><a href="#">Link</a></li> -->
 	              <li><a href='/meals/add'>Log Meal</a></li>
-	              <li><a href='/meals/'>View Meals</a></li>
+	              <li><a href='/meals/index'>View Meals</a></li>
 	              <li><a href='/recipes/search'>Search for Recipe</a></li>
 	            </ul>
 	          </div><!--/.well -->
