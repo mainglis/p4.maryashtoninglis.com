@@ -1,12 +1,10 @@
-<form method='POST' action='/users/p_login'>
+<!-- Controller Specific JS/CSS -->
+<link rel="stylesheet" href="/css/users.css" type="text/css">
 
-    Email<br>
-    <input type='text' name='email'>    
-    <br><br>
-
-    Password<br>
-    <input type='password' name='password'>
-    <br><br>
+<form class="form-signin" method='POST' action='/users/p_login'>
+    <h2 class='form-signin-heading'>Log In</h2>
+    <input type="text" name='email' class="input-block-level" placeholder="Email address">
+    <input type="password" name='password' class="input-block-level" placeholder="Password"><br>
 
     <?php if(isset($error)): ?>
         <div class='error'>
@@ -15,6 +13,7 @@
         <br>
     <?php endif; ?>
 
-    <input type='submit' value='Log in'>
+    <button class="btn btn-large btn-primary" type="submit">Log in</button>
 
 </form>
+
