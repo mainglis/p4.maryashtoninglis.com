@@ -6,4 +6,9 @@ body {
   background-repeat:no-repeat;
   background-position: center;
 }
+
+textarea .input-sm {
+	height: 20px;
+	width: 50px;
+}
     

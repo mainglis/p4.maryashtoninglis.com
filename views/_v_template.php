@@ -28,8 +28,9 @@
 		          <li><a href="/users/logout">Logout</a></li>
 		        </ul>
 		      </li>
-		</div>
-	</div>
+		    </ul>
+		</div> <!--/navbar-static-top-->
+	</div> <!--/navbar-wrapper-->
 	<div class="container-fluid">
 	      <div class="row-fluid">
 	        <div class="span3">
@@ -41,15 +42,15 @@
 	              <li><a href='/meals/index'>View Meals</a></li>
 	              <li><a href='/recipes/search'>Search for Recipe</a></li>
 	            </ul>
-	          </div><!--/.well -->
-	        </div><!--/span-->
+	          </div><!--/well sidebar-nav-->
+	        </div><!--/span3-->
 	        <div class="span9">
-	          <div class="row-fluid">
+	          <!-- <div class="row-fluid"> -->
             	<p>
             		<?php if(isset($content)) echo $content; ?>
-								<?php if(isset($client_files_body)) echo $client_files_body; ?>
-							</p>
-	      		</div>
+					<?php if(isset($client_files_body)) echo $client_files_body; ?>
+				</p>
+	      		<!-- </div> -->
 	      	</div>
 	      </div>
 <!-- PHP IF USER IS NOT LOGGED IN -->

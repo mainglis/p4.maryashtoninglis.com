@@ -4,9 +4,15 @@
 
 <!-- <div class="well"> -->
 <?php if($user): ?>
-<form class="form-signin">
-Hello <?=$user->first_name;?> <!-- Do I need this anymore? -->
-</form>
+
+<div class="well">
+	<div class="span9">
+		Make this echo v_meals_index.php
+	</div>
+</div>
+<!-- <form class="form-signin">
+Hello <?=$user->first_name;?> 
+</form> -->
 
 <?php else: ?>
 <form class="form-signin">
@@ -18,4 +24,4 @@ Hello <?=$user->first_name;?> <!-- Do I need this anymore? -->
 </div> -->
 
 
-<!-- If logged in, I want this page to display as the v_meals_index page, which will list all the meals recently made -->
+<!-- If logged in, I want this page to display as the v_meals_index page, which will list all the meals recently made
