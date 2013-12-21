@@ -63,32 +63,17 @@
   <div class="form-group">
     <label class="col-sm-2 control-label" for="meal_photo">Meal Photo</label>
     <div class="col-sm-8">
-        <input type="file" id="meal_photo">
-        <p class="help-block">Only jpg, jpeg, gif, or png file types allowed.</p>
+        <input type="file" id="meal_photo" name="uploads">
+        <p id="filetypes" class="help-block">Only jpg, jpeg, gif, or png file types allowed.</p>
+        <!-- <input type='submit'>
+          <?#php if($message == "filetype_error"): ?>
+            <div class='error'>
+                <p>Upload failed. Invalid file type. Please try again.</p>
+            </div>
+            <br/>ß
+        <?#php endif; ?>  -->
     </div>
   </div>
 
-  <div class="form-group">
-    <label class="col-sm-2 control-label"></label>
-    <div class="col-sm-8">
-      <input class="btn btn-primary" type='Submit' value='Log Meal!'>
-    </div>
-  </div>
+  <input type='Submit' value='Add new post'>
 </form>
-
-
-        <h4>Upload photo of your breakfast:</h4><p id="filetypes">(only jpg, jpeg, gif, or png file types allowed)</p>
-        
-                <input type='file' name='uploads'></br>
-                <input type='submit'>
-
-         <?php if($message == "filetype_error"): ?>
-        <div class='error'>
-            <p>Upload failed. Invalid file type. Please try again.</p>
-        </div>
-        <br/>
-    <?php endif; ?>  
-
-
-
-</div>

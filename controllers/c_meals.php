@@ -68,14 +68,23 @@ class meals_controller extends base_controller {
 		
 		# Set up query
 		$q = 'SELECT 
-			    shift_head,
-			    created,
-			    menu
+			`meal_id`, 
+			`created`, 
+			`modified`, 
+			`user_id`, 
+			`date`, 
+			`meal_kind`, 
+			`shift_head`, 
+			`vibe`, 
+			`number_served_unique`, 
+			`menu`, 
+			`volunteers`, 
+			`notes`, 
+			`meal_photo`
+			 
+		FROM `meals` 
+		WHERE 1';
 			
-			FROM meals';
-			
-			
-		
 		# Run query	
 		$meals = DB::instance(DB_NAME)->select_rows($q);
 		
@@ -125,7 +134,7 @@ class meals_controller extends base_controller {
     public function p_upload() {
                     $imghash = md5($_POST['uploads']);
                     # Upload an image file into the uploads/avatars folder
-                    $img = @Upload::upload($_FILES, "/uploads/post_images/", 
+                    $img = @Upload::upload($_FILES, "/uploads/meal_images/", 
                     array("jpg", "jpeg", "gif", "png", "JPG", "JPEG", "GIF", "PNG"), $imgHash);
                     
                     # Check if image is a valid type, if so, insert image into db   

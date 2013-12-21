@@ -56,7 +56,7 @@ class recipes_controller extends base_controller {
     	$this->template->content = View::instance("v_recipes_search");
     	
     	$client_files_body = Array(
-    		// '/js/jquery.form.js',
+    		'/js/jquery.form.js',
     		'/js/recipes.js'
     	);
     	

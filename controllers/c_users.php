@@ -43,7 +43,7 @@ class users_controller extends base_controller {
 	    DB::instance(DB_NAME)->insert_row('users', $_POST);
 	    
 	    # Send them to the login page
-	    Router::redirect('/users/login');
+	    Router::redirect('/');
 	    
     }
 
@@ -104,6 +104,8 @@ class users_controller extends base_controller {
 	-------------------------------------------------------------------------------------------------*/
     public function logout() {
        
+       $this->template->content = View::instance('v_users_logout');            
+      echo $this->template;  
        # Generate a new token they'll use next time they login
        $new_token = sha1(TOKEN_SALT.$this->user->email.Utils::generate_random_string());
        
