@@ -117,7 +117,7 @@ class users_controller extends base_controller {
        setcookie('token', '', strtotime('-1 year'), '/');
        
        # Send them back to the homepage
-       Router::redirect('/');
+       Router::redirect('/v_users_logout');
        
     }
 
@@ -128,12 +128,16 @@ class users_controller extends base_controller {
 		
 		# Only logged in users are allowed...
 		if(!$this->user) {
-			die('Members only. <a href="/users/login">Login</a>');
+			Router::redirect('/users/login');
 		}
 		
 		# Set up the View
 		$this->template->content = View::instance('v_users_profile');
 		$this->template->title   = "Profile";
+    $this->template->content->first_name = $this->user->first_name;
+    $this->template->content->last_name = $this->user->last_name;
+    $this->template->content->email = $this->user->email;
+    // $this->template->content->avatar = $this->user->avatar;
 				
 		# Pass the data to the View
 		$this->template->content->user_name = $user_name;
@@ -142,6 +146,30 @@ class users_controller extends base_controller {
 		echo $this->template;
 				
     }
+  /*-------------------------------------------------------------------------------------------------
+  
+  -------------------------------------------------------------------------------------------------*/
+  public function new_photo_upload() {
+          // if user specified a new image file, upload it
+          if ($_FILES['avatar']['error'] == 0){
+              //upload an image
+              $avatar = Upload::upload($_FILES, "/uploads/avatars/", array("jpg", "JPG", "jpeg", "JPEG", "gif", "GIF", "png", "PNG"), $this->user->user_id);
+
+              $data = Array("avatar" => $avatar);
+              DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = ".$this->user->user_id);
+
+              // resize the image and make a thumbnail version resize image.  This code is not working
+              //$imgObj = new Image($_SERVER["DOCUMENT_ROOT"] . '/uploads/avatars/' . $avatar);
+              //$imgObj->resize(100,100, "crop");
+              //$imgObj->save_image($_SERVER["DOCUMENT_ROOT"] . '/uploads/avatars/' . $avatar); 
+
+               # Redirect
+             Router::redirect("/users/profile");
+          }
+
+          // Redirect back to the profile page
+          Router::redirect('/users/profile'); 
+      }    
 
 } # end of the class
 

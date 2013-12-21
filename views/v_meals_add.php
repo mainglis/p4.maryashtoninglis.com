@@ -4,7 +4,7 @@
 <div class="well">
 
 <form class="form-horizontal" method='post' action='/meals/p_add'>
-  <h4>Meal Log</h4>
+  <legend>Meal Log</legend>
   <span class="help-block">Fill this form out to the best of your ability.</span>
 
   <div class="form-group">

@@ -1,8 +1,34 @@
 <!-- Controller Specific JS/CSS -->
 <link rel="stylesheet" href="/css/meals.css" type="text/css">
 
-<div class="container">
+<div class="well">
+
+<form class="form-horizontal" method='post' action='/meals/p_add'>
+  <legend>What's been cooking?</legend>
+  
 
 
 
-</div>
+
+<!-- _________________ Failed attempt ____________________ -->
+<!-- If logged in, I want this page to display as the v_meals_index page, which will list all the meals recently made -->
+<!-- <div class="well"> -->
+<!-- <?php if($user): ?>
+
+<div class="well">
+	<div class="span9">
+		Make this echo v_meals_index.php
+	</div>
+</div> -->
+
+<!-- <form class="form-signin">
+Hello <?=$user->first_name;?> 
+</form> -->
+
+<!--<?php else: ?>
+<form class="form-signin">
+<h3 class='form-signin-heading'>Welcome, Shift Head!</h3>
+<p>Your life is about to get easier. Scratch the 3-ring binder and sign up here to log meals from your laptop or phone.</p>
+</form>
+<?php endif; ?> -->
+<!-- </div> -->

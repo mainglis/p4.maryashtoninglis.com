@@ -15,6 +15,7 @@
 </head>
 
 <body>
+<div id="wrapper">
 	<div class="navbar-wrapper">
 		<div class="navbar navbar-static-top">
 			<a class="navbar-brand" href='/'>ShiftLog</a>
@@ -36,7 +37,7 @@
 	        <div class="span3">
 	          <div class="well sidebar-nav">
 	            <ul class="nav nav-list">
-	              <li class="nav-header">Actions</li>
+	              <!-- <li class="nav-header">Actions</li> -->
 	              <!-- <li class="active"><a href="#">Link</a></li> -->
 	              <li><a href='/meals/add'>Log Meal</a></li>
 	              <li><a href='/meals/index'>View Meals</a></li>
@@ -48,8 +49,8 @@
 	          <!-- <div class="row-fluid"> -->
             	<p>
             		<?php if(isset($content)) echo $content; ?>
-					<?php if(isset($client_files_body)) echo $client_files_body; ?>
-				</p>
+								<?php if(isset($client_files_body)) echo $client_files_body; ?>
+							</p>
 	      		<!-- </div> -->
 	      	</div>
 	      </div>
@@ -64,7 +65,10 @@
 						<?php if(isset($client_files_body)) echo $client_files_body; ?>
 
 			<?php endif; ?>
-		
+		</div>
+	</div>
+</div> <!--/wrapper-->
+	
 <!-- JS File we want on every page. placed at the end of the document so the pages load faster  -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>				
 

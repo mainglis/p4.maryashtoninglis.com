@@ -2,5 +2,10 @@
 <link rel="stylesheet" href="/css/users.css" type="text/css">
 
 <div class="well">
-<h4>This is the profile of <?=$user->first_name?></h4>
+<form class="form-horizontal">
+  <legend>Profile for <?=$user->first_name?></legend>
+  <span class="help-block">Your details go here!</span>
+
+
+
 </div>

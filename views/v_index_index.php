@@ -17,7 +17,7 @@ Hello <?=$user->first_name;?>
 <?php else: ?>
 <form class="form-signin">
 <h3 class='form-signin-heading'>Welcome, Shift Head!</h3>
-<p>Your life is about to get easier. Scratch the 3-ring binder and sign up here to log meals from your laptop or phone.</p>
+<p>Your life is about to get easier. Scratch the 3-ring binder and start logging soup kitchen meals from your laptop or phone!</p>
 </form>
 <?php endif; ?>
 <!-- 
