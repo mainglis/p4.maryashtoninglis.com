@@ -149,6 +149,57 @@ class users_controller extends base_controller {
 				
     }
   /*-------------------------------------------------------------------------------------------------
+         Creating capacity to edit profiles
+  -------------------------------------------------------------------------------------------------*/
+
+
+     public function p_profile($message = NULL, $user_id = NULL) {
+         
+                  # If user is blank, they're not logged in; redirect them to the login page
+                  if(!$this->user) {
+                          Router::redirect('/users/login');
+                  }
+               
+                  # Setup view
+                  $this->template->content = View::instance('v_profile_complete');
+                  $this->template->title   = "Profile of ".$this->user->first_name;
+               
+                  $this->template->content->message = $message;        
+                         
+         //         # Don't allow all profile fields to be blank without at least saying something to the user
+         //         if(!empty($_POST['age'])) {
+         //                 if(empty($_POST['location'])) {                
+         //                         if(empty($_POST['favorite_breakfast'])) {
+         //                 
+                                     
+         //                                     # Sanitize the user entered data to prevent any funny-business (re: SQL Injection Attacks)
+         //                                                 $_POST = DB::instance(DB_NAME)->sanitize($_POST);
+
+         //                                                 # Insert this proile into the database
+         //                                                 $q = DB::instance(DB_NAME)->update('users', $_POST, "WHERE user_id = '".$this->user->user_id."'");                                    
+         //                                         Router::redirect('/users/p_profile/blank');
+         //                             }
+         //                         }
+         //                 }
+         // }        
+                         
+                 # If post data exists, update the users table with the profile data
+                 if($_POST) {                
+                         
+                         
+                         # Sanitize the user entered data to prevent any funny-business (re: SQL Injection Attacks)
+                         $_POST = DB::instance(DB_NAME)->sanitize($_POST);
+
+                         # Insert this proile into the database
+                         $q = DB::instance(DB_NAME)->update('users', $_POST, "WHERE user_id = '".$this->user->user_id."'");
+                         
+                         Router::redirect('/users/p_profile/success');
+                 }        
+                 
+                 # Render template
+                 echo $this->template;        
+         }
+  /*-------------------------------------------------------------------------------------------------
   
   -------------------------------------------------------------------------------------------------*/
   public function new_photo_upload() {
