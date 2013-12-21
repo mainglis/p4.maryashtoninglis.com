@@ -8,12 +8,13 @@
 
   <?php foreach($meals as $meal): ?>
 
-        <div class="form-meal">
+        <div>
         	<label>Shift Head: </label> <?=$meal['shift_head']?> logged on <?=Time::display($meal['created'])?><br>
-	        <label>Meal: </label> <div><?=$meal['meal_kind']?><br>
-	        <label>Menu: </label> <div><?=$meal['menu']?><br>
+	        <label>Meal: </label> <?=$meal['meal_kind']?><br>
+	        <label>Menu: </label> <?=$meal['menu']?><br>
 	        <!-- <img id="avatar" src="<?=$meals[0]['meal_photo']?>" alt="Photo of meal" height="100" width="100"/> -->
 	    </div>
+	    <br><br>
         
 <?php endforeach; ?>
   

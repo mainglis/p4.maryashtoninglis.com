@@ -13,7 +13,7 @@ $('#recipe-search-btn').click(function() {
 	var search_term = $('#recipe-search').val();
 		
 	// This is the URL for Google Image Search that we'll make the Ajax call to
-	var google_url = 'http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=medium&q=' + search_term + '&callback=?';	
+	var google_url = 'http://ajax.googleapis.com/ajax/services/search/images?v=1.0&imgsz=small&q=' + search_term + '&callback=?';	
 		
 	// getJSON is a Ajax method provided to us by jQuery
 	// It's going to make a call to the url we built above, and let us work with the results that Google sends back
@@ -32,7 +32,7 @@ $('#recipe-search-btn').click(function() {
 	        $.each(images, function(key, image) {
 	        
 	        	// Create a new image element
-	        	var new_image_element = "<img class='stickers circular' src='" + image.url + "'>";
+	        	var new_image_element = "<img class='circular' src='" + image.url + "'>";
 	        	
 	        	// Now put the new image in our results div
 	            $('#recipe-search-results').prepend(new_image_element);

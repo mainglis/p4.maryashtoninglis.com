@@ -4,7 +4,7 @@
 <title><?php if(isset($title)) echo $title; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
 
-<!-- JS/CSS File we want on every page -->
+<!-- CSS Files we want on every page -->
 <!-- Bootstrap Core CSS -->
 <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="/css/bootstrap-responsive.css" rel="stylesheet">
@@ -71,6 +71,7 @@
 	
 <!-- JS File we want on every page. placed at the end of the document so the pages load faster  -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>				
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
 <!-- Bootstrap core JavaScript -->
 <script src="/js/bootstrap.min.js"></script>
