@@ -90,9 +90,9 @@ class users_controller extends base_controller {
               }
               # Fail
               else {
-                      $this->template->content = View::instance('v_users_login_fail');            
-                      echo $this->template;  
-                      // echo "Login failed! <a href='/users/login'>Try again?</a>";
+                      // $this->template->content = View::instance('v_users_login_fail');            
+                      // echo $this->template;  
+                      echo "Login failed! <a href='/users/login'>Try again?</a>";
               }
          
   }
